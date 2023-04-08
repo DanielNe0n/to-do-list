@@ -1,0 +1,75 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg border-bottom border-primary mb-4">
+    <div class="container-fluid">
+      
+      <a class="navbar-brand" 
+         href="{% if request.user.is_authenticated %} {% url 'task_list'%} 
+                {% else %} {% url 'index'%}
+               {% endif %}"
+               >
+         To-Do-List
+      </a>
+      <button class="navbar-toggler" type="button" 
+              data-bs-toggle="collapse" data-bs-target="#navbarScroll" 
+              aria-controls="navbarScroll" aria-expanded="false" 
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        {% if request.user.is_authenticated %}
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" 
+            style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link text-primary m-auto" 
+                href="{% url 'create_task' %}">Create Task
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-primary m-auto"
+                href="{% url 'api:api-info'%}">API
+            </a>
+          </li>
+        </ul>
+        
+  
+        <form class="d-flex" role="search" 
+              method="POST" action="{% url 'searched' %}">
+          <input class="form-control me-2" type="search"
+                 name="searched" placeholder="Search" 
+                 aria-label="Search"
+                 >
+          {% csrf_token %}
+          <button class="btn btn-outline-success"  type="submit">Search</button>
+        </form>
+        {% endif %}
+        <ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll 
+                  {% if request.user.is_authenticated %} ms-4 
+                  {% endif %}" 
+                  style="--bs-scroll-height: 100px;">
+            {% if request.user.is_authenticated %}
+                <li class="nav-item ms-1">
+                    <p class="nav-link text-black m-auto">{{request.user}}</p>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-primary " href="{% url 'logout' %}">
+                      logout
+                    </a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                  <a class="nav-link text-primary " href="{% url 'login' %}">
+                    Login
+                  </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-primary" href="{% url 'register' %}">
+                      Registration
+                    </a>
+                </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>

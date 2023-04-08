@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if title == 'Confirm'%}
+        Forgot password
+    {% else %}
+        {{ title }}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center">
+    <form action="#" method="post" class="text-center">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn mb-3">{{ title }}</button>
+        {% if title == 'Login' %}
+            <p class="h6"><a href="{% url 'forgot_password' %}">
+                Forgot password?
+            </p></a>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}

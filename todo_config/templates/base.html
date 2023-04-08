@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'ToDoList/bootstrap/css/bootstrap.min.css'%}">
+    <title>{% block title %} base title{% endblock %}</title>
+</head>
+<body id="body_theme">
+    {% include '_nav/_nav.html' %}
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+            {{ message }}
+          </div>
+        {% endfor %}
+    {% endif %}
+    {% block content %} base content {% endblock %}
+    
+    <script src="{% static 'ToDoList/bootstrap/js/bootstrap.min.js'%}"></script>
+</body>
+</html>

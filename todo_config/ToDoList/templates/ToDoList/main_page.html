@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Main page
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="all_page">
+    <div class="container">
+        <h3 class="text-center mt-3">
+            Our website is the perfect solution 
+            for anyone looking to stay organized and productive.
+            Whether you need to create a to-do list, 
+            keep track of important events, 
+            or simply jot down notes, 
+            our user-friendly platform has got you covered. 
+            Say goodbye to pen and paper - with our website, 
+            you'll have all of your important information at your fingertips, 
+            no matter where you are. 
+            So why wait? 
+            Sign up today and start taking control of your life!
+        </h3>
+    </div>
+    <hr>
+
+    <div class="block_end">
+        <div class="container cards d-flex justify-content-center flex-wrap ">
+            <div class="card-deck justify-content-between  m-2 ">
+                    <div class="card mb-3 align-self-start border-danger" style="max-width: 18rem;">
+                        <div class="card-header bg-transparent border-danger pt-1 m-auto"> 
+                            <a href="#" style="text-decoration: none; color: black">
+                                update 
+                            </a> 
+                            | 
+                            <a href="#" style="text-decoration: none; color: black">
+                                delete
+                            </a> 
+                        </div>
+                        
+                        <div class="card-body ">
+    
+                            <a href="#" style="text-decoration: none; color: black;" >
+                                <h5 class="card-title text-decoration-none">
+                                    <a href="{% url 'register' %}" class="text-decoration-none">
+                                        Register 
+                                    </a>
+                                </h5>
+                                <p class="card-text border-danger">
+                                    Sign up and get started with our platform in no time. 
+                                    With just a few quick steps, 
+                                    you'll have access to a personalized to-do list
+                                    and API integration, making task management a breeze.
+                                </p>
+                            </a>
+                        
+                        </div>
+                        <div class="card-footer bg-transparent border-danger d-flex justify-content-center ">
+                            00.00.2023 --- 00.00.2023
+                        </div>
+                    </div>
+                </div>
+                
+                <!---second card -->
+    
+                <div class="card-deck d-flex justify-content-between m-2 ">
+                    <div class="card mb-3 align-self-start border-info"  style="max-width: 18rem;">
+                        <div class="card-header bg-transparent border-info pt-1 m-auto"> 
+                            <a href="#" style="text-decoration: none; color: black"> update </a> | 
+                            <a href="#" style="text-decoration: none; color: black"> delete </a> 
+                        </div>
+                        
+                        <div class="card-body ">
+    
+                            <a href="#" style="text-decoration: none; color: black;" >
+                                <h5 class="card-title text-decoration-none">
+                                    <a href="{% url 'login' %}" class="text-decoration-none"> 
+                                            Login 
+                                    </a>
+                                </h5>
+                                <p class="card-text border-info">
+                                    Keep your tasks with you at all times in your secure account. 
+                                    Logging in is quick and easy, 
+                                    giving you instant access to your personalized to-do list
+                                    and the API.
+                                </p>
+                            </a>
+                        
+                        </div>
+                        <div class="card-footer bg-transparent border-info d-flex justify-content-center ">
+                            00.00.2023
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

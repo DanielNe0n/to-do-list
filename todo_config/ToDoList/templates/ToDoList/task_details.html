@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{task.title|truncatewords:10}}
+{% endblock %}
+
+    {% block content %}
+    <div class="container " style="display: flex; flex-direction: column; ">
+        <h6 class="ps-2">
+            <a href="{% url 'edit_task' task.pk %}">update</a> | 
+            <a href="{% url 'delete_task' task.pk %}">delete</a>
+        </h6>
+        <h1 class="text-break">{{ task.title }}<h1>
+            <hr>
+        <h4 class="p-2 text-break">{{ task.description }}<h4>
+        <div class="container_adds border-info mt-4">
+            {% if task.complete == True %}
+                <h4 class="mb-5">Complete - Yes </h4>
+            {% else %}
+                <h4>complete - No </h4>
+            {% endif %}
+            <h5>created at - {{ task.created_at|date:"d.m.Y - H:i" }} <h5>
+            <h5>updated at - {{ task.updated_at|date:"d.m.Y - H:i" }}</h5>
+        </div>
+    </div>
+    
+    
+{% endblock %}
